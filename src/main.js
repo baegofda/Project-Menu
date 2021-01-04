@@ -18,25 +18,42 @@ function createHTMLStirng(food) {
   return `<li class="select__menu">${food.name}</li>`;
 }
 
-// 함수실행
-loadFood()
-  .then((foods) => {
-    // 데이터를 리스트로 뿌리기위한 함수실행
-    displayFoods(foods);
-  })
-  .catch((err) => console.log(err));
-
 const dropdownToggle = document.querySelector(".select__dropdown");
 const categories = document.querySelector(".select__categories");
+const selectBtn = document.querySelectorAll(".select__btn");
+const subBtn = document.querySelector(".select__order-btn");
 
+//토글버튼 클릭시 카테고리 리스트 토글
 dropdownToggle.addEventListener("click", () => {
   if (categories.classList.contains("show")) {
     categories.classList.remove("show");
-  } else {
-    categories.classList.add("show");
+    return;
   }
+  categories.classList.add("show");
+  selectBtn.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const selected = e.currentTarget.innerText;
+      dropdownToggle.innerText = selected;
+      categories.classList.remove("show");
+      dropdownToggle.classList.add("selected");
+      subBtn.removeAttribute("disabled");
+    });
+  });
 });
 
-dropdownToggle.addEventListener("blur", () => {
-  categories.classList.remove("show");
-});
+function selectFood(foods) {
+  categories.addEventListener("click", (e) => {
+    const key = e.target.dataset.key;
+    const value = e.target.dataset.value;
+    displayFoods(foods.filter((food) => food[key] === value));
+  });
+}
+
+// 함수실행
+loadFood()
+  .then((foods) => {
+    // 데이터를 리스트로 뿌리기위해 foods 전달
+    displayFoods(foods);
+    selectFood(foods);
+  })
+  .catch((err) => console.log(err));
