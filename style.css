@@ -71,6 +71,9 @@ button {
   border-radius: var(--border-radius);
   background-color: var(--color-background-white);
 }
+.dropdown {
+  position: relative;
+}
 
 .select__dropdown {
   color: var(--color-placeholder);
@@ -80,8 +83,19 @@ button {
 }
 
 .select__categories {
-  border: 1px solid var(--color-border);
+  width: 100%;
+  position: absolute;
+  max-height: 0;
+  overflow: hidden;
+  border: 1px solid transparent;
   border-radius: var(--border-radius);
+  transition: max-height 300ms ease-in-out;
+}
+
+.select__categories.show {
+  max-height: 100vh;
+  border-color: var(--color-border);
+  background-color: var(--color-background-white);
 }
 
 .select__category:hover {
