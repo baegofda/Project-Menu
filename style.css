@@ -1,16 +1,16 @@
 :root {
   /* color */
-  --color-font: #3f4150;
-  --color-border: rgba(224, 226, 231, 0.75);
+  --color-font: #242424;
+  --color-border: rgba(133, 136, 150, 0.5);
   --color-background: #f4f7fa;
   --color-background-white: #fff;
-  --color-placeholder: rgba(133, 136, 150, 0.5);
+  --color-placeholder: #242424;
   --color-button-font: #f8f9fa;
   --color-button-able: #1b1c32;
   --color-button-disable: #e0e2e7;
 
   /* size */
-  --margin-bottom: 5px;
+  --margin-bottom: 10px;
   --border-radius: 3px;
 }
 
@@ -58,18 +58,22 @@ button {
   height: 100%;
   font-family: "Open Sans", sans-serif;
   color: var(--color-font);
-  background-color: var(--color-background);
+  background: url("https://cdn.dribbble.com/users/143350/screenshots/14052412/media/27ab3785352e64f357bc1608bae74361.png")
+    no-repeat center/cover;
 }
 
 .main-container__title {
   font-size: 1.5rem;
-  margin: 0 0 var(--margin-bottom);
+  margin: 0 0 calc(var(--margin-bottom) * 2);
 }
 
 .select__category-container {
   padding: 1.5em;
   border-radius: var(--border-radius);
-  background-color: var(--color-background-white);
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 .dropdown {
   position: relative;
@@ -110,10 +114,32 @@ button {
   border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
+.select__menu-list {
+  height: 300px;
+  overflow-y: scroll;
+  margin-bottom: var(--margin-bottom);
+}
+
+.select__menu {
+  font-size: 0.875rem;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.select__menu:not(:last-child) {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.select__menu:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 16px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
 .select__order-btn {
   color: var(--color-button-font);
   background-color: var(--color-button-able);
-  border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
 }
 
