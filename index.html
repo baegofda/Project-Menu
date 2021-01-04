@@ -1,9 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>🍴 오늘 뭐먹지 ?</title>
   </head>
-  <body></body>
+  <body>
+    <main>
+      <h1 class="title">🍴 오늘 뭐먹지 ?</h1>
+      <section class="select">
+        <h1>카테고리</h1>
+        <div class="select__category-container">
+          <button class="select__dropdown">카테고리를 정해주세요</button>
+          <ul class="select__categories">
+            <li class="select__category">
+              <button class="select__btn" data-key="*">전체보기</button>
+            </li>
+            <li class="select__category">
+              <button class="select__btn" data-key="country" data-value="ko">
+                한식
+              </button>
+            </li>
+            <li class="select__category">
+              <button class="select__btn" data-key="country" data-value="ch">
+                중식
+              </button>
+            </li>
+            <li class="select__category">
+              <button class="select__btn" data-key="country" data-value="jp">
+                일식
+              </button>
+            </li>
+            <li class="select__category">
+              <button class="select__btn" data-key="country" data-value="eu-us">
+                양식
+              </button>
+            </li>
+            <li class="select__category">
+              <button class="select__btn" data-key="type" data-value="noodle">
+                면류
+              </button>
+            </li>
+            <li class="select__category">
+              <button class="select__btn" data-key="type" data-value="rice">
+                밥류
+              </button>
+            </li>
+            <li class="select__category">
+              <button class="select__btn" data-key="type" data-value="meat">
+                육류
+              </button>
+            </li>
+          </ul>
+          <ul class="select__menu-list">
+            <li class="select__menu">🍕 피자</li>
+            <li class="select__menu">🍔 햄버거</li>
+            <li class="select__menu">🍟 감자튀김</li>
+          </ul>
+          <button class="select__order-btn">📞 주문하러가기</button>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
