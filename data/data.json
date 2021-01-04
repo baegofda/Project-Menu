@@ -1,3 +1,24 @@
 {
-  "foods": [{ "key": "country", "value": "ch" }]
+  "foods": [
+    { "country": "jp", "type": "noodle", "name": "🍜 라멘" },
+    { "country": "eu-us", "type": "noodle", "name": "🍝 스파게티" },
+    { "country": "jp", "type": "rice", "name": "🍛 일본카레" },
+    { "country": "eu-us", "type": "dessert", "name": "🍦 아이스크림" },
+    { "country": "eu-us", "type": "dessert", "name": "🥗 샐러드" },
+    { "country": "eu-us", "type": "fastfood", "name": "🍔 햄버거" },
+    { "country": "eu-us", "type": "fastfood", "name": "🍟 감자튀김" },
+    { "country": "jp", "type": "rice", "name": "🍣 초밥" },
+    { "country": "kr", "type": "rice", "name": "🍱 도시락" },
+    { "country": "eu-us", "type": "dessert", "name": "🍩 도넛" },
+    { "country": "ch", "type": "dessert", "name": "🥟 만두" },
+    { "country": "eu-us", "type": "dessert", "name": "🥞 팬케이크" },
+    { "country": "kr", "type": "noodle", "name": "🍜 라면" },
+    { "country": "ch", "type": "noodle", "name": "🥠 포춘쿠키" },
+    { "country": "eu-us", "type": "dessert", "name": "🍫 초콜렛" },
+    { "country": "eu-us", "type": "dessert", "name": "🍮 푸딩" },
+    { "country": "eu-us", "type": "dessert", "name": "🍞 빵" },
+    { "country": "eu-us", "type": "dessert", "name": "🧇 와플" },
+    { "country": "kr", "type": "rice", "name": "🍲 찌개" },
+    { "country": "kr", "type": "rice", "name": "🍙 삼각김밥" }
+  ]
 }

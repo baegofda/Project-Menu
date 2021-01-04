@@ -104,7 +104,7 @@ button {
 }
 
 .select__categories.show {
-  max-height: 230px;
+  max-height: 300px;
   border-color: var(--color-border);
   background-color: var(--color-background-white);
 }
