@@ -4,14 +4,14 @@
   --color-border: rgba(224, 226, 231, 0.75);
   --color-background: #f4f7fa;
   --color-background-white: #fff;
-  --color-button: #f8f9fa;
   --color-placeholder: rgba(133, 136, 150, 0.5);
-  --color-button-font: #1b1c32;
+  --color-button-font: #f8f9fa;
+  --color-button-able: #1b1c32;
   --color-button-disable: #e0e2e7;
 
   /* size */
   --margin-bottom: 5px;
-  --border-radius: 6px;
+  --border-radius: 3px;
 }
 
 * {
@@ -94,4 +94,16 @@ button {
 
 .select__category:last-child .select__btn {
   border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.select__order-btn {
+  color: var(--color-button-font);
+  background-color: var(--color-button-able);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+}
+
+.select__order-btn:disabled {
+  background-color: var(--color-button-disable);
+  cursor: not-allowed;
 }
