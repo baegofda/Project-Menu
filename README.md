@@ -2,6 +2,8 @@
 
 ![Alt text](./assets/landing-image.jpg)
 
+[프로젝트 구경가기](https://baegofda.github.io/Project-Menu/)
+
 ## **✨ 목표**
 
 ---
