@@ -39,8 +39,9 @@ loadData()
 const dropdown = document.querySelector(".dropdown");
 const categoryContainer = document.querySelector(".select__categories");
 const submitBtn = document.querySelector(".select__order-btn");
+const toggleBtn = document.querySelector(".select__dropdown");
 
-dropdown.addEventListener("click", (e) => {
+dropdown.addEventListener("mousedown", (e) => {
   const target = e.target;
   // 드롭다운 토글버튼 클릭시
   if (target.classList.contains("select__dropdown")) {
@@ -51,6 +52,11 @@ dropdown.addEventListener("click", (e) => {
     selectCategory(target);
     submitBtn.setAttribute("disabled", "disabled");
   }
+  return;
+});
+
+toggleBtn.addEventListener("blur", () => {
+  categoryContainer.classList.remove("show");
 });
 
 // 카테고리 목록 보이기
