@@ -7,6 +7,7 @@
 // 5. 메뉴를 클릭시 서브밋 버튼이 able상태가 된다.
 //   (메뉴 클릭시 해당 메뉴를 표시해줘야한다.)
 
+// 1.
 // data.json의 데이터들을 json타입으로 로드
 function loadData() {
   return fetch("data/data.json")
@@ -17,6 +18,7 @@ function loadData() {
 
 const menuList = document.querySelector(".select__menu-list");
 
+// 2.
 // json데이터 string 형식의 데이터로 변환하기위함
 function displayItems(items) {
   menuList.innerHTML = items
@@ -26,15 +28,7 @@ function displayItems(items) {
     .join("");
 }
 
-//함수실행
-loadData()
-  .then((items) => {
-    //받은 json타입의 데이터를 리스트를 뿌리기 위함
-    displayItems(items);
-    setEventListeners(items);
-  })
-  .catch((err) => console.log(err));
-
+// 3.
 // 카테고리 설정 변수
 const dropdown = document.querySelector(".dropdown");
 const categoryContainer = document.querySelector(".select__categories");
@@ -55,6 +49,7 @@ dropdown.addEventListener("mousedown", (e) => {
   return;
 });
 
+// 목록 보일때 블러이벤트
 toggleBtn.addEventListener("blur", () => {
   categoryContainer.classList.remove("show");
 });
@@ -64,6 +59,7 @@ function categoryHandler() {
   categoryContainer.classList.toggle("show");
 }
 
+// 4.
 // 카테고리 설정
 function selectCategory(category) {
   const toggleBtn = document.querySelector(".select__dropdown");
@@ -74,7 +70,7 @@ function selectCategory(category) {
 //클릭시의 리스트 이벤트
 function setEventListeners(items) {
   const title = document.querySelector(".main-container__title");
-  title.addEventListener("click", () => console.log("hi"));
+  title.addEventListener("click", () => displayItems(items));
   categoryContainer.addEventListener("click", (e) => onFilter(e, items));
 }
 
@@ -86,7 +82,19 @@ function onFilter(e, items) {
   displayItems(items.filter((item) => item[key] === value));
 }
 
-//주문버튼 활성화
-menuList.addEventListener("click", () => {
+// 5.
+//메뉴 선택시 주문버튼 활성화
+menuList.addEventListener("click", (e) => {
+  const target = e.target;
+  target.classList.toggle("selected");
   submitBtn.removeAttribute("disabled");
 });
+
+//함수실행
+loadData()
+  .then((items) => {
+    //받은 json타입의 데이터를 리스트를 뿌리기 위함
+    displayItems(items);
+    setEventListeners(items);
+  })
+  .catch((err) => console.log(err));

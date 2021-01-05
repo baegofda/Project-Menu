@@ -141,22 +141,39 @@ button {
 }
 
 .select__menu {
+  position: relative;
   font-size: 0.875rem;
   padding: 0.5em;
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .select__menu:not(:last-child) {
   border-bottom: 1px solid var(--color-border);
 }
 
-.select__menu:hover {
-  background-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 2px 16px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+.select__menu:hover::after {
+  width: 100%;
+  opacity: 1;
 }
 
+.select__menu::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 0px;
+  height: 4px;
+  margin: 5px 0 0;
+  transition: all 0.2s ease-in-out;
+  transition-duration: 0.3s;
+  opacity: 0;
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.select__menu.selected {
+  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
 .select__order-btn {
   color: var(--color-button-font);
   background-color: var(--color-button-able);
