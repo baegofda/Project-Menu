@@ -13,7 +13,7 @@
     { "country": "ch", "type": "dessert", "name": "🥟 만두" },
     { "country": "eu-us", "type": "dessert", "name": "🥞 팬케이크" },
     { "country": "kr", "type": "noodle", "name": "🍜 라면" },
-    { "country": "ch", "type": "noodle", "name": "🥠 포춘쿠키" },
+    { "country": "ch", "type": "dessert", "name": "🥠 포춘쿠키" },
     { "country": "eu-us", "type": "dessert", "name": "🍫 초콜렛" },
     { "country": "eu-us", "type": "dessert", "name": "🍮 푸딩" },
     { "country": "eu-us", "type": "dessert", "name": "🍞 빵" },
