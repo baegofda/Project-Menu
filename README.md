@@ -35,7 +35,7 @@
 ### **💻 코드살펴보기**
 
 > 페이지 로드시 data.json 파일의 데이터를 불러옵니다.
-> 카테고리별 메뉴를 볼 수 있습니다.
+> 카테고리 버튼 클릭시 카테고리 목록을 볼 수 있습니다.
 
 ```js
 function loadData() {
@@ -45,8 +45,30 @@ function loadData() {
     .catch((err) => console.log(err));
 }
 
-const dropdown = document.querySelector(".dropdown");
 const categoryContainer = document.querySelector(".select__categories");
+
+function categoryHandler() {
+  categoryContainer.classList.toggle("show");
+}
+
+loadData()
+  .then((items) => {
+    displayItems(items);
+    setEventListeners(items);
+  })
+  .catch((err) => console.log(err));
+```
+
+### **2. 버튼을 클릭하거나 다른 화면을 클릭시 목록이 닫힌다.**
+
+<p align="center"><img src="./assets/category-close.gif"/></p>
+
+### **💻 코드살펴보기**
+
+> 카테고리를 클릭하거나 다른 화면을 클릭시 카테고리 목록이 닫힙니다.
+
+```js
+const dropdown = document.querySelector(".dropdown");
 const submitBtn = document.querySelector(".select__order-btn");
 const toggleBtn = document.querySelector(".select__dropdown");
 
@@ -62,35 +84,45 @@ dropdown.addEventListener("mousedown", (e) => {
   return;
 });
 
-// 카테고리 목록 보이기
-function categoryHandler() {
-  categoryContainer.classList.toggle("show");
-}
-
-//함수실행
-loadData()
-  .then((items) => {
-    //받은 json타입의 데이터를 리스트를 뿌리기 위함
-    displayItems(items);
-    setEventListeners(items);
-  })
-  .catch((err) => console.log(err));
+toggleBtn.addEventListener("blur", () => {
+  categoryContainer.classList.remove("show");
+});
 ```
-
-### **2. 버튼을 클릭하거나 다른 화면을 클릭시 메뉴가 닫힌다.**
-
-<p align="center"><img src="./assets/category-close.gif"/></p>
 
 ### **3. 카테고리를 선택하면 메뉴의 필터링이 가능하다.**
 
 <p align="center"><img src="./assets/category-select.gif"/></p>
 
+```js
+function selectCategory(category) {
+  const toggleBtn = document.querySelector(".select__dropdown");
+  toggleBtn.innerText = category.innerText;
+  toggleBtn.classList.add("selected");
+}
+
+function setEventListeners(items) {
+  const title = document.querySelector(".main-container__title");
+  title.addEventListener("click", () => displayItems(items));
+  categoryContainer.addEventListener("click", (e) => onFilter(e, items));
+}
+
+function onFilter(e, items) {
+  const target = e.target;
+  const key = target.dataset.key;
+  const value = target.dataset.value;
+  displayItems(items.filter((item) => item[key] === value));
+}
+```
+
 ### **4. 메뉴를 선택하면 선택과 함께 주문 버튼이 활성화가 된다.**
 
 <p align="center"><img src="./assets/menu-select.gif"/></p>
 
+### **💻 코드살펴보기**
+
+> 원하는 메뉴 선택시 주문버튼이 활성화 됩니다.
+
 ```js
-//메뉴 선택시 주문버튼 활성화
 menuList.addEventListener("click", (e) => {
   const target = e.target;
   target.classList.toggle("selected");
