@@ -1,13 +1,3 @@
-// 1. json 데이터를 로드해온다.
-// 2. json 데이터를 가공하여  html로 변환하여 메뉴 리스트를 생성한다.
-// 3. 토글버튼을 클릭시 카테고리 리스트가 나오게한다. (show 클래스 생성)\
-// (다시 토글버튼을 클릭하거나 다른곳을 클릭시에 사라지게해야한다.) (shwo 클래스 삭제)
-// 4. 카테고리 리스트 클릭시 해당 카테고리에 맞는 메뉴가 나오게 한다.
-//   (해당 카테고리 리스트 클릭시 토글 버튼의 텍스트가 해당 카테고리 리스트로 바뀌어야함)
-// 5. 메뉴를 클릭시 서브밋 버튼이 able상태가 된다.
-//   (메뉴 클릭시 해당 메뉴를 표시해줘야한다.)
-
-// 1.
 // data.json의 데이터들을 json타입으로 로드
 function loadData() {
   return fetch("data/data.json")
@@ -18,7 +8,6 @@ function loadData() {
 
 const menuList = document.querySelector(".select__menu-list");
 
-// 2.
 // json데이터 string 형식의 데이터로 변환하기위함
 function displayItems(items) {
   menuList.innerHTML = items
@@ -28,7 +17,6 @@ function displayItems(items) {
     .join("");
 }
 
-// 3.
 // 카테고리 설정 변수
 const dropdown = document.querySelector(".dropdown");
 const categoryContainer = document.querySelector(".select__categories");
@@ -59,7 +47,6 @@ function categoryHandler() {
   categoryContainer.classList.toggle("show");
 }
 
-// 4.
 // 카테고리 설정
 function selectCategory(category) {
   const toggleBtn = document.querySelector(".select__dropdown");
@@ -82,7 +69,6 @@ function onFilter(e, items) {
   displayItems(items.filter((item) => item[key] === value));
 }
 
-// 5.
 //메뉴 선택시 주문버튼 활성화
 menuList.addEventListener("click", (e) => {
   const target = e.target;

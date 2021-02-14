@@ -34,7 +34,48 @@
 
 ### **💻 코드살펴보기**
 
+> 페이지 로드시 data.json 파일의 데이터를 불러옵니다.
 > 카테고리별 메뉴를 볼 수 있습니다.
+
+```js
+function loadData() {
+  return fetch("data/data.json")
+    .then((res) => res.json())
+    .then((json) => json.foods)
+    .catch((err) => console.log(err));
+}
+
+const dropdown = document.querySelector(".dropdown");
+const categoryContainer = document.querySelector(".select__categories");
+const submitBtn = document.querySelector(".select__order-btn");
+const toggleBtn = document.querySelector(".select__dropdown");
+
+dropdown.addEventListener("mousedown", (e) => {
+  const target = e.target;
+  if (target.classList.contains("select__dropdown")) {
+    categoryHandler();
+  } else if (target.className === "select__btn") {
+    categoryHandler();
+    selectCategory(target);
+    submitBtn.setAttribute("disabled", "disabled");
+  }
+  return;
+});
+
+// 카테고리 목록 보이기
+function categoryHandler() {
+  categoryContainer.classList.toggle("show");
+}
+
+//함수실행
+loadData()
+  .then((items) => {
+    //받은 json타입의 데이터를 리스트를 뿌리기 위함
+    displayItems(items);
+    setEventListeners(items);
+  })
+  .catch((err) => console.log(err));
+```
 
 ### **2. 버튼을 클릭하거나 다른 화면을 클릭시 메뉴가 닫힌다.**
 
@@ -47,6 +88,15 @@
 ### **4. 메뉴를 선택하면 선택과 함께 주문 버튼이 활성화가 된다.**
 
 <p align="center"><img src="./assets/menu-select.gif"/></p>
+
+```js
+//메뉴 선택시 주문버튼 활성화
+menuList.addEventListener("click", (e) => {
+  const target = e.target;
+  target.classList.toggle("selected");
+  submitBtn.removeAttribute("disabled");
+});
+```
 
 ## **👋 마무리 소감**
 
