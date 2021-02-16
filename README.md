@@ -93,6 +93,10 @@ toggleBtn.addEventListener("blur", () => {
 
 <p align="center"><img src="./assets/category-select.gif"/></p>
 
+### **💻 코드살펴보기**
+
+> 선택 된 카테고리와 맞는 value를 비교하여 필터링 된 메뉴만 보이게 됩니다.
+
 ```js
 function selectCategory(category) {
   const toggleBtn = document.querySelector(".select__dropdown");
